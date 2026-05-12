@@ -26,13 +26,14 @@ public partial class CreatorEntry : Node
 		Dictionary<string, string> cmdargs = Globals.ReadCmdArgs();
 		cmdargs.TryGetValue("token", out string? launchToken);
 
-		CreatorService creatorService = new();
-		AddChild(creatorService);
-
 		CreatorSettingsService creatorSettingsService = new()
 		{
 			Name = "CreatorSettingsService"
 		};
+
+		CreatorService creatorService = new();
+		AddChild(creatorService);
+
 		AddChild(creatorSettingsService, true, InternalMode.Front);
 		creatorSettingsService.Init();
 

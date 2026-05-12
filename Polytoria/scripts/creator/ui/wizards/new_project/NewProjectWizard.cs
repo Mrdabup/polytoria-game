@@ -90,7 +90,7 @@ public partial class NewProjectWizard : Control
 		Visible = true;
 		_oldNameText = DefaultProjectName;
 		_projectNameEdit.Text = DefaultProjectName;
-		_projectPathEdit.Text = CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory);
+		_projectPathEdit.Text = Path.Join(CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory),CreatorService.PolytoriaFolderName,DefaultProjectName).SanitizePath();
 	}
 
 	public void Back()
