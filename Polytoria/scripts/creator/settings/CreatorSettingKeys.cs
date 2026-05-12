@@ -9,6 +9,7 @@ public static class CreatorSettingKeys
 	public static class Creator
 	{
 		public const string OpenWebAfterPublish = "creator.open_web_after_publish";
+		public const string DefaultProjectDirectory = "creator.default_project_dir";
 	}
 
 	public static class Interface

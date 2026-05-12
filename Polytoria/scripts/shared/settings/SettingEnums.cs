@@ -18,5 +18,6 @@ public enum SettingControlKind
 	Toggle,
 	Slider,
 	Dropdown,
-	ButtonGroup
+	ButtonGroup,
+	TextInput
 }
