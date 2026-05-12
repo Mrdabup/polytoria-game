@@ -64,7 +64,7 @@ public sealed partial class CreatorService : Node, IScriptObject
 			Service = this
 		};
 		AddChild(Interface);
-		
+
 		string polyFolder = Path.Join(CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory), PolytoriaFolderName);
 		if (!Directory.Exists(polyFolder))
 		{

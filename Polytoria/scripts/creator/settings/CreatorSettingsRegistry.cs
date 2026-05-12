@@ -50,7 +50,7 @@ public static class CreatorSettingsRegistry
 			new SettingDef<string>
 			{
 				Key = CreatorSettingKeys.Creator.DefaultProjectDirectory,
-				SectionKey= "creator",
+				SectionKey = "creator",
 				Label = "Default Directory",
 				Description = "Default directory where projects are made.\nNOTE: This does not change the directory of any project imported from other folders.",
 				ValueKind = SettingValueKind.String,
