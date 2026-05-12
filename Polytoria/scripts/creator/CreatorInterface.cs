@@ -99,7 +99,7 @@ public partial class CreatorInterface : Control, IScriptObject
 	public override void _Ready()
 	{
 		_creatorTheme = ResourceLoader.Load<Theme>(CreatorThemePath, cacheMode: ResourceLoader.CacheMode.IgnoreDeep);
-		LastFilePromptFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments);
+		LastFilePromptFolder = CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory);
 
 		Theme = _creatorTheme;
 

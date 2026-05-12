@@ -14,12 +14,14 @@ using Polytoria.Creator.Utils;
 using Polytoria.Formats;
 using Polytoria.Scripting;
 using Polytoria.Shared;
+using Polytoria.Shared.Settings;
 using Polytoria.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Formats.Tar;
 
 namespace Polytoria.Datamodel.Creator;
 
@@ -63,7 +65,8 @@ public sealed partial class CreatorService : Node, IScriptObject
 		};
 		AddChild(Interface);
 
-		string polyFolder = Path.Join(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), PolytoriaFolderName);
+		string polyFolder = Path.Join(CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory), PolytoriaFolderName);
+		PT.PrintErr(polyFolder);
 		if (!Directory.Exists(polyFolder))
 		{
 			Directory.CreateDirectory(polyFolder);

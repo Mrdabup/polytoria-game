@@ -6,6 +6,7 @@ using Polytoria.Shared.Settings;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text.Json;
+using System.IO;
 
 namespace Polytoria.Creator.Settings;
 
@@ -54,7 +55,7 @@ public static class CreatorSettingsRegistry
 				Description = "Default directory where projects are made.\nNOTE: This does not change the directory of any project imported from other folders.",
 				ValueKind = SettingValueKind.String,
 				ControlKind = SettingControlKind.TextInput,
-				DefaultValue = "~/Documents/Polytoria/"
+				DefaultValue = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments)
 			});
 
 		// Interface

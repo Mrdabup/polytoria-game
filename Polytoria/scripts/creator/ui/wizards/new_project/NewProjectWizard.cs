@@ -4,6 +4,7 @@
 
 using Godot;
 using Polytoria.Creator.Managers;
+using Polytoria.Creator.Settings;
 using Polytoria.Creator.UI.Splashes;
 using Polytoria.Datamodel.Creator;
 using Polytoria.Shared;
@@ -89,7 +90,7 @@ public partial class NewProjectWizard : Control
 		Visible = true;
 		_oldNameText = DefaultProjectName;
 		_projectNameEdit.Text = DefaultProjectName;
-		_projectPathEdit.Text = Path.Join(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), CreatorService.PolytoriaFolderName, DefaultProjectName).SanitizePath();
+		_projectPathEdit.Text = CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory);
 	}
 
 	public void Back()
