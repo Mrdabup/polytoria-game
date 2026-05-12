@@ -59,18 +59,35 @@ public sealed partial class CreatorService : Node, IScriptObject
 		{
 			Service = this
 		};
+		PT.PrintErr("Second stage");
 		Clipboard = new()
 		{
 			Service = this
 		};
+		PT.PrintErr("Third stage");
 		AddChild(Interface);
 
-		string polyFolder = Path.Join(CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory), PolytoriaFolderName);
-		PT.PrintErr(polyFolder);
+		PT.PrintErr("Fourth stage");
+		try
+		{
+			string polyFolder = CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory);
+			PT.PrintErr("Fith stage");
+			if (!Directory.Exists(polyFolder))
+			{
+				Directory.CreateDirectory(polyFolder);
+			}
+			PT.PrintErr("Complete!");
+		}
+		catch(Exception ex)
+		{
+			PT.PrintErr($"HEY! DO NOT ignore this! If this is your first time launching the V2 polytoria creator AND haven't launch the production version (IE: the beta version), THINGS ARE NOT GOING TO BE SET UP CORRECTLY!\nDO report this to the github repo with the following exception:\n{ex.ToString()}");
+		}
+		/*string polyFolder = CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory);
+		PT.PrintErr("Fith stage");
 		if (!Directory.Exists(polyFolder))
 		{
 			Directory.CreateDirectory(polyFolder);
-		}
+		}*/
 	}
 
 	public override void _Ready()
