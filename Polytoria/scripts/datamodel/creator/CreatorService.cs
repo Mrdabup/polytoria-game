@@ -65,11 +65,7 @@ public sealed partial class CreatorService : Node, IScriptObject
 		};
 		AddChild(Interface);
 
-		string polyFolder = Path.Join(CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory), PolytoriaFolderName);
-		if (!Directory.Exists(polyFolder))
-		{
-			Directory.CreateDirectory(polyFolder);
-		}
+		string polyFolder = CreatorSettingsService.Instance.Get<string>(CreatorSettingKeys.Creator.DefaultProjectDirectory);
 	}
 
 	public override void _Ready()

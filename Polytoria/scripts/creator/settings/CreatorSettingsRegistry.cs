@@ -55,7 +55,7 @@ public static class CreatorSettingsRegistry
 				Description = "Default directory where projects are made.\nNOTE: This does not change the directory of any project imported from other folders.",
 				ValueKind = SettingValueKind.String,
 				ControlKind = SettingControlKind.TextInput,
-				DefaultValue = System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments)
+				DefaultValue = Path.Join(System.Environment.GetFolderPath(System.Environment.SpecialFolder.MyDocuments), "Polytoria/")
 			});
 
 		// Interface
