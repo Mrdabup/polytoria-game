@@ -13,7 +13,6 @@ public static class SettingFieldFactory
 			SettingControlKind.Toggle => new ToggleSettingField { Definition = def },
 			SettingControlKind.Slider => new SliderSettingField { Definition = def },
 			SettingControlKind.Dropdown => new DropdownSettingField { Definition = def },
-			SettingControlKind.TextInput => new TextInputSettingsField { Definition = def },
 			_ => new Label { Text = "Unsupported setting type!" }
 		};
 	}
