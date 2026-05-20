@@ -1,4 +1,3 @@
-using System.Formats.Tar;
 using Godot;
 using Polytoria.Client.Settings;
 using Polytoria.Shared.Settings;
@@ -9,21 +8,29 @@ public sealed partial class TextInputSettingsField: LineEdit
 {
 	public SettingDef Definition = null!;
 	private HBoxContainer _hbox = null!;
-	private LineEdit _lineEdit = null!;
+	private Label _valueLabel = null!;
 
 	private System.Action<SettingChangedEvent>? _changedHandler;
 	public override void _Ready()
 	{
-		_hbox = new HBoxContainer
+		/*_hbox = new HBoxContainer
 		{
 			SizeFlagsHorizontal = SizeFlags.ExpandFill,
 			SizeFlagsVertical = SizeFlags.ShrinkCenter
 		};
 		AddChild(_hbox);
+
 		_lineEdit = new LineEdit
 		{
 			SizeFlagsHorizontal = SizeFlags.ExpandFill,
 			SizeFlagsVertical = SizeFlags.ShrinkCenter
+		};*/
+
+		_valueLabel = new Label
+		{
+			CustomMinimumSize = new Vector2(64, 0),
+			HorizontalAlignment = HorizontalAlignment.Right,
+			VerticalAlignment = VerticalAlignment.Center
 		};
 
 		TextChanged += (value) =>
@@ -36,11 +43,24 @@ public sealed partial class TextInputSettingsField: LineEdit
 		{
 			if (e.Key == Definition.Key && e.NewValue is string s)
 			{
-				//Doesn't work
+				//Placeholder
 			}
 		};
 		ClientSettingsService.Instance.Changed += _changedHandler;
 		
 		base._Ready();
+
+		//Why won't this show up in the creator menu?!
+	}
+
+	public override void _ExitTree()
+	{
+		if (_changedHandler != null && ClientSettingsService.Instance != null)
+		{
+			ClientSettingsService.Instance.Changed -= _changedHandler;
+			_changedHandler = null;
+		}
+
+		base._ExitTree();
 	}
 }
