@@ -20,7 +20,6 @@ public sealed partial class CreatorSettingsService : SettingsServiceBase
 	private static readonly Dictionary<string, string> OldToNewKeyMap = new()
 	{
 		["Creator.OpenWebAfterPublish"] = CreatorSettingKeys.Creator.OpenWebAfterPublish,
-		["Creator.DefaultProjectDirectory"] = CreatorSettingKeys.Creator.DefaultProjectDirectory,
 		["Interface.UIScale"] = CreatorSettingKeys.Interface.UiScale,
 		["Interface.UseFullscreen"] = SharedSettingKeys.Display.Fullscreen,
 		["Backup.MaxBackupCount"] = CreatorSettingKeys.Backup.MaxBackupCount,
